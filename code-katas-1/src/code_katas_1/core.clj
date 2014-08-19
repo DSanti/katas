@@ -4,6 +4,7 @@
   "Escribir una funcion que retorne solamente los numeros impares de
    una secuencia"
   [s]
+  (filter #(= 1 (rem % 2)) s)
   )
 
 (defn nil-key
