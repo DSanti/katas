@@ -58,7 +58,9 @@
   "Escribir una funcion que reciba un string y devuelva un nuevo string conteniendo
    solamente las mayusculas."
   [text]
+  (apply str (filter  #(> 97 (int %) 64) text))
   )
+
 
 (defn find-truth
   "Escribir una funcion que tome un numero variable de booleans, y devuelva true
