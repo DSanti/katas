@@ -25,19 +25,30 @@
   "Escribir una funcion que elimine los duplicados consecutivos
    de una secuencia"
   [s]
+  (def anterior "-")
+  (filter #(do (def anterior2 anterior) (def anterior %) (not= % anterior2)) s)
   )
 
 (defn max-value
   "Escribir una funcion que reciba un numero variable de parametros
    y retorne el que tenga el valor mayor
    Restricciones: max y max-key"
-  [& args])
+  [& args]
+  (def maximo (first args))
+  (last (filter #(if (>= % maximo) (do (def maximo %) true) false) args))
+  )
 
 (defn split-two
   "Escribir una funcion que parta una secuencia en dos partes
    Restricciones: split-at"
   [length s]
+  (def cabeza [])
+  (def cola [])
+  (iterate #(into [%] cabeza) (take length s))
+  (iterate #(into [%] cola) (take-last (- (count s) length) s))
+  (into [cabeza] [cola])
   )
+
 
 (defn inter-two
   "Escribir una funcion que reciba dos secuencias y retorne el primero de cada una,
