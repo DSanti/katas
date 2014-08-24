@@ -58,7 +58,7 @@
   "Escribir una funcion que reciba un string y devuelva un nuevo string conteniendo
    solamente las mayusculas."
   [text]
-  (apply str (filter  #(> 97 (int %) 64) text))
+  (apply str (filter #(> 97 (int %) 64) text))
   )
 
 
@@ -75,4 +75,5 @@
    construya un mapa a partir de ellos.
    Restricciones: zipmap"
   [k v]
+  (reduce merge (for [x (range 0 (min (count k) (count v)))] (hash-map (nth k x) (nth v x))))
   )
