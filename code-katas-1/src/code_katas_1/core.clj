@@ -51,6 +51,7 @@
    luego el segundo de cada una, luego el tercero, etc.
    Restricciones: interleave"
   [s1 s2]
+  (for [x (range 0 (* 2 (min (count s1) (count s2))))] (if (odd? x) (nth s2 (quot x 2)) (nth s1 (quot x 2))))
   )
 
 (defn retrieve-caps
