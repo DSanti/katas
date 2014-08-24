@@ -67,6 +67,7 @@
    solamente si alguno de los parametros son true, pero no todos son true. En otro
    caso debera retornar false"
   [& xs]
+  (< 0 (reduce + (map #(if (true? %) 1 0) xs)) (count xs))
   )
 
 (defn zip-map
