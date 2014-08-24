@@ -11,12 +11,14 @@
   "Escribir una funcion que dada una clave y un mapa, devuelva true, solamente si el mapa
    contiene una entrada con esa clave, y su valor es nil"
   [k m]
-  (if (contains? m k) (if (= (get k m) nil) true false) false)
+  (if (contains? m k) (if (nil? (get m k)) true false) false)
   )
+
 (defn range
   "Escribir una funcion que cree una lista de enteros en un rango dado.
    Restricciones: range"
   [start end]
+  (take (- end start) (iterate inc start))
   )
 
 (defn compress-sequence
