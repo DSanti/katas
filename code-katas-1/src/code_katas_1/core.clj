@@ -42,11 +42,7 @@
   "Escribir una funcion que parta una secuencia en dos partes
    Restricciones: split-at"
   [length s]
-  (def cabeza [])
-  (def cola [])
-  (iterate #(into [%] cabeza) (take length s))
-  (iterate #(into [%] cola) (take-last (- (count s) length) s))
-  (into [cabeza] [cola])
+  [(vec (take length s)) (vec (take-last (- (count s) length) s))]
   )
 
 
